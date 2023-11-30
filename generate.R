@@ -1,27 +1,4 @@
-# Load the SQLite library
-library(RSQLite)
-
-# Create a SQLite database (you can change the filename as needed)
-db <- dbConnect(SQLite(), dbname = "library.db")
-
-# Create the Authors table
-dbExecute(db, "
-  CREATE TABLE Authors (
-    author_id INTEGER PRIMARY KEY,
-    first_name TEXT,
-    last_name TEXT
-  )
-")
-
-# Create the Books table
-dbExecute(db, "
-  CREATE TABLE Books (
-    book_id INTEGER PRIMARY KEY,
-    title TEXT,
-    publication_year INTEGER,
-    author_id INTEGER,
-    FOREIGN KEY (author_id) REFERENCES Authors(author_id)
-  )
+# broken comment
 ")
 
 # Create the Genres table

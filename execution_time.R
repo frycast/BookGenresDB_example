@@ -2,40 +2,8 @@
 library(RSQLite)
 library(dplyr)
 
-# Helper function to measure execution time
-time_query <- function(query, verbose = F) {
-  
-  # Connect to the SQLite database
-  db <- DBI::dbConnect(SQLite(), dbname = "library.db")
-  
-  # Close the connection when the function exits (even if there's an error)
-  on.exit(DBI::dbDisconnect(db))
-  
-  # Run query
-  start_time <- Sys.time()  # Record start time
-  result <- DBI::dbGetQuery(db, query)
-  end_time <- Sys.time()  # Record end time
-  
-  # Calculate and print execution time
-  execution_time <- end_time - start_time
-  
-  if (verbose) cat("Execution Time:", execution_time, "\n")
-  
-  return(execution_time)
-}
 
-# Helper function to call time_query multiple times and print result
-time_compare_queries <- function(...) {
-  
-  # Get the arguments as a named list
-  queries <- list(...)
-  
-  # Run time_query on the list
-  results <- lapply(queries, time_query)
-  
-  # Print the results
-  cat(paste0(paste0(names(results), ": ", results, "\n"), collapse = ""))
-}
+# whole bunch of junk
 
 # Time some queries that use '=' ---------------------------------------------
 
